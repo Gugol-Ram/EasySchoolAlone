@@ -1,0 +1,161 @@
+/* studentDetail.module.css */
+
+.main_container {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.title {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  padding-left: 0.7em;
+  padding-top: 0.6em;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.link_to_student {
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 120px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px 10px;
+  position: relative;
+  left: 1%;
+  top: 0%;
+  background-color: #0f4cff;
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.ContainerProducto img {
+  width: 100%;
+  height: 50%;
+}
+
+.ContainerProducto {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+
+.ContainerSuperior {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.docImage {
+  max-width: 20em;
+  max-height: 20em;
+}
+
+.profile_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  flex-direction: column;
+  background-color: #5a8bad;
+  border-radius: 1em;
+  max-width: auto;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  border: solid;
+  padding-top: 5px;
+  /* text-decoration: line-through; */
+  font-family: "Verdana";
+  color: black;
+}
+
+.parentInfo {
+  font-size: 1.4em;
+}
+
+.notRegistered {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.validation_message {
+  color: #618aa8;
+  text-align: center;
+}
+
+/* Agregar estilos específicos para el componente StudentDetail */
+.cardContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cardTitle {
+  font-size: 1.5em;
+}
+
+.cardImages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardText {
+  margin-bottom: 10px;
+}
+
+.items {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+}
+
+.cardImage {
+  width: 3.5cm;
+  height: 5cm;
+}
+
+.cardButtons {
+  margin-top: 20px;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.names {
+  font-family: "Arial Black";
+  font-weight: 900;
+  font-size: auto;
+  font-style: italic;
+  text-decoration: underline;
+  /* background-color: rgb(14, 84, 141); */
+}
+
+/* .str {
+  text-decoration: underline;
+} */
