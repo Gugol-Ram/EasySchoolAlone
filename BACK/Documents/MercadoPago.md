@@ -74,7 +74,7 @@ Necesito hacer una peticion POST a mi controlador de create order para inicializ
 paymentRouter.post("/create-order", createOrder)
 ```
 
-Ademas necesitare hacer las rutas para los distintos escenarios que podrían suceder como exito, fracaso o pendiente
+Además necesitare hacer las rutas para los distintos escenarios que podrían suceder como exito, fracaso o pendiente
 
 ```
 paymentRouter.get("/success", (req, res) => {
@@ -173,7 +173,7 @@ payment_methods: {
     },
 ```
 
-ademas, si quisieramos mas cuotas podríamos hacer algo como:
+Además, si quisieramos mas cuotas podríamos hacer algo como:
 
 ```
 payment_methods: {
