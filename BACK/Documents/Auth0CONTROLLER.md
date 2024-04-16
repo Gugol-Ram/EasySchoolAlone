@@ -14,7 +14,7 @@ Aqui tendremos nuestra lógica para loguearnos(si ya nos registramos previamente
 
 Requeriremos variables de entorno, nuestro modelo usuario **_Obtenido_** de nuestra bd, generar un JWT y una contraseña aleatoria(temporal) etc.
 
-Ádemas, hacemos uso de nodemailer para que en caso de registrarnos usando Auth0(es decir una cuenta de una red social por ej) tambien se nos envie el mensaje de bienvenida.
+Además, hacemos uso de nodemailer para que en caso de registrarnos usando Auth0(es decir una cuenta de una red social por ej) tambien se nos envie el mensaje de bienvenida.
 
 ```
 require("dotenv").config();
@@ -46,7 +46,7 @@ userAuth0Controller.loginOrSignup = async (req, res) => {
 
 Si no existe el usuario entonces le asignamos una password temporal utilizando crypto que se encarga de generar aleatoriamente bytes para luego utilziar toString('hex') que los convierte en una cadena hexadecimal legible
 
-Ádemas, luego de que se genera la password, le aplicamos el hasheo.
+Además, luego de que se genera la password, le aplicamos el hasheo.
 
 ```
 ...

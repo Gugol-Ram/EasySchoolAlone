@@ -14,7 +14,7 @@ const jwt = require('jsonwebtoken');
 
 Toammos el email y password recibido desde el front por el body, y buscamos si hay match de dicho email en nuestra BD. En caso de no haber respondemos con el mensaje de error que creamos conveniente.
 
-Ádemas de ello verificamos que sea un usuario activo, ya que puede existir el email pero ser un usuario dado de baja. También respondemos con un mensaje adecuado.
+Además de ello verificamos que sea un usuario activo, ya que puede existir el email pero ser un usuario dado de baja. También respondemos con un mensaje adecuado.
 
 ```
 const loginUser = async (req, res) => {
