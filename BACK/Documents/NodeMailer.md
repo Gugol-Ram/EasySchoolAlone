@@ -6,7 +6,7 @@ Iniciamos sesión en la cuenta gmail que utilizaremos a tal fin(puede ser la per
 
 Necesitamos que tenga activa la verificación en dos pasos, si no es asi, la activamos desde el apartado de seguridad -> verificación en dos pasos. Para esto necesitaremos un teléfono al cual será enviado un PIN para activarla.
 
-Una vez activada la verificación, en la barra de búsqueda buscaremos 'contraseñas de aplciaciones', una vez allí solo hay que colocar un nombre representativo y nos devolverá una contraseña. GUARDARLA ya que no es recuperable, hay que borrar y volver a crear la app sino.
+Una vez activada la verificación, en la barra de búsqueda buscaremos 'contraseñas de aplicaciones', una vez allí solo hay que colocar un nombre representativo y nos devolverá una contraseña. GUARDARLA ya que no es recuperable, hay que borrar y volver a crear la app sino.
 
 Instalamos el paquete de nodemailer en nuestro proyecto:
 
@@ -133,4 +133,4 @@ const createUser = async (req, res) => {
 
 Y respecto a las validaciones de padres y estudiantes por parte del administrador, será desde el controller del Admin.
 
-En lo posible crear un nuevo usuario con un correo verdadero, sino gmail queda rebotando en el intento de envio de correo y es un poco molesto, y si consideramos que podemos haber hecho 10 pruebas de usuarios nuevos se vuelve exponencial jaja
+En lo posible al registrar un nuevo usuario en nuestra app, hacerlo con un correo verdadero(que exista), sino gmail queda rebotando en el intento de envio de correo y es un poco molesto por que en la cuenta que utilizamos para nodemailer estará llegando 3 o 4 avisos de envío fallido sino, esto para un solo usuario y si consideramos que podemos haber hecho 10 pruebas de usuarios nuevos se vuelve exponencial jaja
