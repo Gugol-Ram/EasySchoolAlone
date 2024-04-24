@@ -109,6 +109,7 @@ const Login = () => {
           <button
             onClick={() => (window.location.href = "/")}
             className={styles.returnButton}
+            style={{ margin: "10px" }}
           >
             Volver a la pantalla de inicio
           </button>
@@ -117,11 +118,12 @@ const Login = () => {
           <Form
             className={`p-4 border rounded form-parameters ${styles.formParameters}`}
             onSubmit={handleSubmit}
+            style={{ marginBottom: "10px" }}
           >
-            <h3 className="text-center mb-4">Inicie sesión</h3>
+            <h3 className="text-center mb-4">Ingresar a su Cuenta</h3>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Correo electrónico</Form.Label>
+              <Form.Label>Correo electrónico:</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -133,7 +135,7 @@ const Login = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Contraseña</Form.Label>
+              <Form.Label>Contraseña:</Form.Label>
               <Form.Control
                 type="password"
                 name="password"
@@ -170,7 +172,7 @@ const Login = () => {
             <p
               className={`forgot-password text-center mt-2 ${styles.notRegistered}`}
             >
-              No está registrado?
+              ¿No está registrado?
             </p>
             <div className="d-grid">
               <Link to="/addUser" className="btn btn-primary">

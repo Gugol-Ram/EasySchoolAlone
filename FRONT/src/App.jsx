@@ -1,6 +1,6 @@
 import HomePage from "./peges/Home/HomePage";
 import { Route, Routes } from "react-router-dom";
-import Login from "./components/Forms/LoginForm/login";
+import Login from "./components/Forms/LoginForm/loginV2";
 import FormParent from "./components/Forms/FormParent/FormParent";
 import NotFound from "./peges/NotFound/NotFound";
 import AddUserForm from "./components/Forms/addUserForm/addUserForm";
@@ -41,7 +41,6 @@ function App() {
         />
         <Route exact path="/*" element={<NotFound />} />
       </Routes>
-      
     </>
   );
 }

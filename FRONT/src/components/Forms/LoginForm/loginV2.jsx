@@ -172,6 +172,7 @@ const Login = () => {
           <button
             onClick={() => (window.location.href = "/")}
             className={styles.returnButton}
+            style={{ margin: "10px" }}
           >
             Volver a la pantalla de inicio
           </button>
@@ -180,6 +181,7 @@ const Login = () => {
           <Form
             className={`p-4 border rounded form-parameters ${styles.formParameters}`}
             onSubmit={handleSubmit}
+            style={{ marginBottom: "10px" }}
           >
             <h3 className="text-center mb-4">Inicie sesión</h3>
 
