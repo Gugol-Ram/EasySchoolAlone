@@ -1,6 +1,9 @@
 const express = require("express");
 const { Router } = require("express");
-const { createOrder, receiveWebhook } = require("../controllers/aaa");
+const {
+  createOrder,
+  receiveWebhook,
+} = require("../controllers/mercadoPagoCtrl");
 const router = Router();
 
 router.post("/mercadopago", createOrder);

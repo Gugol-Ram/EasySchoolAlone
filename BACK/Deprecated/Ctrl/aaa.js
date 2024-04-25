@@ -1,51 +1,62 @@
-const { Router } = require("express");
 const mercadopago = require("mercadopago");
-require("dotenv").config();
-const { MERCADO_ACCESS_TOKEN, FRONT_URL, BACK_URL } = process.env;
-const Mercado_Pago = Router();
-const { Mpago, Parents, Grade, Estudiante } = require("../config/db");
+require("dotenv").config({ path: "./.env" });
+const { FRONT_URL, BACK_URL } = process.env;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+const { Mpago, Parents, Grade, Estudiante } = require("../../src/config/db");
 
 mercadopago.configure({
-  access_token: MERCADO_ACCESS_TOKEN || "",
+  access_token: ACCESS_TOKEN,
 });
+console.log(ACCESS_TOKEN);
 
-Mercado_Pago.post("/mercadopago", async (req, res) => {
-  const producto = req.body;
+const createOrder = (req, res) => {
+  // const producto = req.body;
+  const { id, title, price, quantity } = req.body;
   const parentid = req.body.parentid;
   const estudianteId = req.body.studentId;
   const gradeId = req.body.gradeId;
 
-  try {
-    const preference = {
-      items: [
-        {
-          title: producto.title,
-          unit_price: producto.unit_price,
-          currency_id: "USD",
-          quantity: producto.quantity,
-        },
-      ],
-      back_urls: {
-        success: `${FRONT_URL}/viewParent/myProfile`, // cuando es pago exitoso nos regresa al perfil de padre donde realiza el pago
-        failure: `${FRONT_URL}/viewParent/myProfile`,
+  // try {
+  let preference = {
+    items: [
+      {
+        id: id,
+        title: title,
+        unit_price: price,
+        currency_id: "ARS",
+        quantity: quantity,
       },
-      payment_methods: {
-        installments: 1,
-      },
-      Notification_url: /*"https://2167-186-28-102-128.ngrok-free.app/webhook"*/ `${BACK_URL}/webhook`,
-      external_reference: `${String(estudianteId)},${String(gradeId)},${String(
-        parentid
-      )}`,
-      auto_return: "approved",
-    };
+    ],
+    back_urls: {
+      success: `${FRONT_URL}/viewParent/myProfile`, // cuando es pago exitoso nos regresa al perfil de padre donde realiza el pago
+      failure: `${FRONT_URL}/viewParent/myProfile`,
+      pending: `${FRONT_URL}/viewParent/myProfile`,
+    },
+    payment_methods: {
+      installments: 1,
+    },
+    notification_url:
+      "https://2167-186-28-102-128.ngrok-free.app/webhook" /*`${BACK_URL}/webhook`*/,
+    external_reference: `${String(estudianteId)},${String(gradeId)},${String(
+      parentid
+    )}`,
+    auto_return: "approved",
+  };
 
-    const respuesta = await mercadopago.preferences.create(preference);
-    return res.status(200).json(respuesta.response.init_point);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ message: "error en controllador" });
-  }
-});
+  mercadopago.preferences
+    .create(preference)
+    .then((response) => res.status(200).json(response))
+    .catch((error) => res.status(400).json({ message: error.message }));
+  console.log("esto es el preference", preference);
+  // console.log(response);
+
+  //   const respuesta = await mercadopago.preferences.create(preference);
+  //   return res.status(200).json(respuesta.response.init_point);
+  // } catch (error) {
+  //   console.error(error.message);
+  //   res.status(500).json({ message: error.message });
+  // }
+};
 
 const receiveWebhook = async (req, res) => {
   try {
@@ -153,4 +164,4 @@ const updateGradeQuota = async (gradeId) => {
   }
 };
 
-module.exports = { Mercado_Pago, receiveWebhook };
+module.exports = { createOrder, receiveWebhook };

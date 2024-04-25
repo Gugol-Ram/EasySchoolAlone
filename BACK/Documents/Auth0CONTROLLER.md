@@ -112,3 +112,60 @@ if (user.subtype === 2) {
 #### Conexión con el front en:
 
 Components/Forms/LoginForm
+
+Invocamos 2 metodos de Auth0 para iniciar sesión, **_loginWithPopup_** que será el encargado de abrir una ventana emergente para el logueo/registro y **_getIdTokenClaims_** que es el método de Auth0 para proporcionar un token
+
+```
+const { loginWithPopup, getIdTokenClaims } = useAuth0()
+```
+
+Y ese token se lo pasamos al backend para manejar el inicio de sesión y la persistencia de los datos. Además, en caso de ser un nuevo usuario, luego de crearlo y guardarlo, disparamos una alerta para redirigir a iniciar sesión con el mismo.
+
+```
+ const { loginWithPopup, getIdTokenClaims } = useAuth0();
+  const handleLoginSubmission = async () => {
+    try {
+      await loginWithPopup(); // This will open a popup for Auth0 login
+      const tokenClaims = await getIdTokenClaims(); // Get token claims after successful login
+      // Sending the tokenClaims object to the backend
+      const response = await axios.post(
+        `${VITE_BACK_URL}/user/auth0/loginOrSignup`,
+        tokenClaims
+      );
+      if (response.data.isNewUser) {
+        // si es usuario recien creado usando el boton de inicio de sesion
+        // console.log({
+        //   message: "Creado exitosamente debe ingresar nuevamente",
+        // });
+        Alert.fire({
+          title: "¡Éxito!",
+          text: "El nuevo usuario se ha creado correctamente. Redirigiendo a Iniciar Sesión...",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+      } else {
+        // Guardar el token en el (sessionStorage) si es necesario
+        sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("nombre", response.data.user.nombre);
+        sessionStorage.setItem("subtype", response.data.user.subtype);
+        sessionStorage.setItem("userId", response.data.user.id);
+        if (response.data.user.subtype) navigate("/viewParent/myProfile");
+      }
+      // Logging the response from the backend
+    } catch (error) {
+      Alert.fire({
+        title: "Error",
+        text: "Hubo un problema al crear el nuevo usuario. Verifica los campos o contacta con el administrador.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      console.error("Error al crear el nuevo usuario:", error);
+    }
+  };
+
+```

@@ -1,4 +1,4 @@
-# Auth: Registro o Logueo 'TRADICIONAL'(Mediante el formulario)
+# Auth: Logueo 'TRADICIONAL'(Mediante el formulario)
 
 (Mejor si cambio el nombre a uno mas representativo o entendible...)
 
@@ -104,8 +104,6 @@ const loginUser = async (req, res) => {
 module.exports = { loginUser };
 ```
 
-#### Conexión con el front en:
+## Conexión con el front en:
 
-Redux/Actions/Actions-Login.js
-
-Components/Forms/LoginForm(⚠️Verificar si aca tambien)
+**_Components/Forms/LoginForm_** Es el encargado de capturar los datos introducidos en el front(loginData), validarlos y mediante la acción correspondiente (**_Redux/Actions/Actions-Login.js_**) le paso esa infromación para que ésta acción despache al backend la info junto al token y espere la respuesta del mismo.

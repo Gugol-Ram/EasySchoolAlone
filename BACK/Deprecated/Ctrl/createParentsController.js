@@ -1,4 +1,4 @@
-const { Parents } = require("../config/db");
+const { Parents } = require("../../src/config/db");
 
 const createNewUserParent = async ({
   idDoc,
