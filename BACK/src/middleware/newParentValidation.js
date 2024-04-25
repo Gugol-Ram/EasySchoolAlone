@@ -41,7 +41,13 @@ const newParentValidation = (req, res, next) => {
     stripUnknown: true, // Elimina claves adicionales no definidas en el esquema
   });
 
-  if (error) {
+  // if (error) {
+  //   const missingFields = error.details.map((detail) => detail.context.label);
+  //   return res.status(400).json({
+  //     error: `Missing or Invalid field(s): ${missingFields.join(", ")}`,
+  //   });
+  // }
+  if (error && error.details && Array.isArray(error.details)) {
     const missingFields = error.details.map((detail) => detail.context.label);
     return res.status(400).json({
       error: `Missing or Invalid field(s): ${missingFields.join(", ")}`,

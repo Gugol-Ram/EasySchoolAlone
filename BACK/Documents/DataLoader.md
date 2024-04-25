@@ -16,6 +16,10 @@ const db = require("../config/db");
 
 Leemos los archivos con la información pertinente, estos serán archivos de tipo **_JSON_**, y deberán tener la estructura esperada por la BD, es decir lo definido en cada modelo respectivo, sobretodo si alguna propiedad allí definida es **_allowNull false_** sino romperá!
 
+Para esta data podemos crear un archivo `js` para cada **_modelo_** con la información necesaria para que al ejecutarlo genere un archivo `JSON` con información aleatoria. En algunos casos puede requerir alguna intervención manual en el `JSON` generado.
+
+Esto es útil cuando nuestro proyecto es muy particular y no se puede consumir o no hay una API que tenga los requerimientos necesarios.
+
 ```
 const loadDataToDatabase = async () => {
   try {
@@ -162,7 +166,7 @@ module.exports = {
 
 ```
 
-# Código final:
+## Código final **_dataLoader.js_**:
 
 ```
 const fs = require("fs");
@@ -290,5 +294,43 @@ const loadDataToDatabase = async () => {
 module.exports = {
   loadDataToDatabase,
 };
+```
 
+# EJECUTANDO LA CARGA DE DATOS DESDE **_BACK/index.js_**:
+
+Nuestro index es el archivo donde se inicializa el servidor backend(al hacer npm start se ejecuta a su vez el script 'server', y éste ejecuta 'nodemon index.js').
+
+Para ello requeriremos variables de entorno(en este caso sólo para asignar el puerto específico), neustro archivo server, nuestra conexión a la BD y por ultimo el archivo encargado de "cargar" la BD con información.
+
+```
+require("dotenv").config();
+const server = require("./src/server");
+const { conn } = require("./src/config/db.js");
+const { loadDataToDatabase } = require("./src/config/dataLoader.js");
+const { PORT } = process.env;
+```
+
+Con una operación **_asíncrona_**, esperamos a que se **_sincronice_** la BD mediante el método `force`.
+
+Si este es `false` entonces si se verifica que la tabla existe esta no será eliminada sino que solo se actualizaran los datos nuevos ante cada cambio del servidor.
+
+En cambio si es `true` significará que cada vez que se reinicie el servidor la BD será eliminada y se creará nuevamente por lo que no habra persistencia en los datos al hacer cualquier modificación sobre el back. para realizar deploy quitar el true.
+
+Luego de realizada la sincronización, esperamos a que se ejecute el archivo encargado de cargar la información para llenar la BD e imprimimos en consola el mensaje de espera.
+Manejamos errores adecuadamente imprimiendo en consola el posible error.
+
+```
+(async () => {
+  try {
+    await conn.sync({ force: true });
+    console.log("Database schema synchronized.");
+
+    await loadDataToDatabase();
+    server.listen(PORT, () => {
+      console.log(`Server listening on port ${PORT}.`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+})();
 ```
