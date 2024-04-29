@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 // import { useTranslation } from "react-i18next";
 // import style from "./contact.module.css";
 
-export const ContactUs = () => {
+export const Contact = () => {
   // handleSubmit = (event) => {
   //   event.preventDefault();
 
@@ -209,4 +209,4 @@ export const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default Contact;
