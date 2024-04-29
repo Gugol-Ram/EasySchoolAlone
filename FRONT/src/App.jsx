@@ -15,13 +15,14 @@ import ParentDetail from "./peges/AdminPages/ParentDetail/ParentDetail";
 import ComentarioDetail from "./peges/AdminPages/ComentarioDetail/ComentarioDetail";
 import Testimonios from "./components/Testimonios/Testimonios";
 import GradeEdit from "./components/ViewSuperAdmin/MainComponents/Dashboard/Grades/EditGrade";
-//iportaciones
+import Contact from "./components/ContactUs/Contact.jsx";
 
 function App() {
   return (
     <>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/formParent" element={<FormParent />} />
         <Route path="/viewParent/:id" element={<ViewParent />} />
