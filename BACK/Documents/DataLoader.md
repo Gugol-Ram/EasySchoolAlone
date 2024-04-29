@@ -70,7 +70,11 @@ Luego queda cargar dicha información a neustra BD, podría ser mediante algun m
 
 `await User.bulkCreate(users);`
 
-Pero en este caso como los datos estan interrelacionados entre sí haremos un recorrido individual utilizando un bucle for para ello y siguiendo un órden lógico para que no haya errores. Finalizamos exportando dicha fn ya que será utilizada en nuestro index al inicializar el servidor:
+Pero en este caso como los datos estan interrelacionados entre sí haremos un recorrido individual utilizando un bucle for para ello y siguiendo un órden lógico para que no haya errores. Finalizamos exportando dicha fn ya que será utilizada en nuestro index al inicializar el servidor.
+
+Detalle importante del bucle, es que en este caso la información del json ya contiene un id de tipo `uuidv4` ya predeterminado
+
+Esto se debe a que siguiendo la secuencia lógica de creación definida en los Ctrls, al crear un usuario se le asigna un `uuidv4` aleatorio, que es lo esperado por la BD. Pero al crear un Padre o Estudiante, necesitaré de ese id para hacer la correlación por lo que no se puede dejar al azar la generación de ese id en este caso sino que ya viene predeterminado. Solo aplica para la carga ficticia de datos(y por la estructurade los mismos que son dependientes del otro), aunque en una data real podría darse tal situación.
 
 ```
 {...
