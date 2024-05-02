@@ -1,16 +1,39 @@
 .background {
   background-color: #0b4c7b;
-  min-height: 100vh;
 }
 
 .formParameters {
-  width: 400px;
-  max-width: 60vw;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%; /* Utilizando un porcentaje del ancho de la pantalla */
+  max-width: 500px; /* Máximo ancho para evitar que se vea demasiado ancho en pantallas grandes */
+  margin: 0 auto; /* Auto-margen horizontal para centrar la caja */
   background-color: rgba(245, 245, 245, 0.692);
   color: black;
   padding: 1em;
   border-radius: 0.5em;
+  box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+}
+
+/* Agregamos reglas para los elementos dentro de formParameters */
+.formParameters label,
+.formParameters input,
+.formParameters textarea {
+  margin-bottom: 10px; /* Espacio entre elementos */
+  width: 100%; /* Ocupar todo el ancho disponible */
+}
+
+/* Alineamos el botón al centro */
+.formParameters input[type="submit"] {
+  margin-top: 10px; /* Espacio sobre el botón */
+  align-self: center; /* Alinear al centro verticalmente */
+}
+
+/* Estilos para la alerta de éxito */
+.alert.success {
+  text-align: center; /* Alinear el texto al centro */
+  margin-top: 15px; /* Espacio sobre la alerta */
 }
 
 .returnButton {

@@ -15,7 +15,7 @@ import ParentDetail from "./peges/AdminPages/ParentDetail/ParentDetail";
 import ComentarioDetail from "./peges/AdminPages/ComentarioDetail/ComentarioDetail";
 import Testimonios from "./components/Testimonios/Testimonios";
 import GradeEdit from "./components/ViewSuperAdmin/MainComponents/Dashboard/Grades/EditGrade";
-import Contact from "./components/ContactUs/Contact.jsx";
+import Contact from "./components/ContactUs/ContactUs.jsx";
 
 function App() {
   return (

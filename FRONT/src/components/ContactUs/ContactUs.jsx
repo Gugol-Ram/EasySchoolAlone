@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 // import { useTranslation } from "react-i18next";
-// import style from "./contact.module.css";
+import styles from "./contact.module.css";
 
 export const Contact = () => {
   // handleSubmit = (event) => {
@@ -90,26 +90,27 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact">
-      <div className="row section-head">
+    <section className={styles.background}>
+      <div className="text-center mb-4">
         <div className="two columns header-col">
           <h1>
-            <span>Contacto</span>
+            <span>Easy School</span>
           </h1>
         </div>
         <div className="ten columns">
           <p className="lead">
-            ¿Te gustaría contactarme o consultarme algo más? No dudes en
-            enviarme un mensaje por medio de este formulario, o a traves de mis
-            redes que se encuentran al final clickeando sobre los íconos, y te
-            responderé a la brevedad.?
+            ¿Necesitás contactarnos? No dudes en dejarnos tu mensaje completando
+            este formulario y te responderemos a la brevedad.
           </p>
         </div>
       </div>
-      <div className="row">
-        <div className="eight columns">
+      <div className={`d-flex flex-column align-items-center`}>
+        <div
+          className={`p-4 border rounded form-parameters ${styles.formParameters}`}
+        >
           <form ref={form} onSubmit={sendEmail}>
             <fieldset>
+              <h3 className="text-center mb-4">Cóntacto</h3>
               <div>
                 <label htmlFor="contactName">
                   Nombre <span className="required">*</span>
@@ -170,14 +171,21 @@ export const Contact = () => {
                   <span className="required">*</span>
                 </label>
                 <textarea
-                  cols={50}
+                  cols={35}
                   rows={15}
+                  style={{ marginBottom: "15px" }}
                   id="contactMessage"
                   name="message"
                   defaultValue={""}
                 />
-                <label htmlFor="">¿Listo?</label>
-                <input className="submit" type="submit" value="Envíar" />
+                <label htmlFor="" style={{ marginRight: "15px" }}>
+                  <strong>¿Listo?</strong>
+                </label>
+                <input
+                  className={styles.returnButton}
+                  type="submit"
+                  value="Envíar"
+                />
                 {submitError && (
                   <div className="error" style={{ color: "darkred" }}>
                     <strong>{submitError}</strong>
@@ -200,7 +208,7 @@ export const Contact = () => {
               <br />
               Córdoba, Argentina.
               <br />
-              <span>Próximamente</span>
+              <span>2024©️All Rights Reserved</span>
             </p>
           </div>
         </aside>
