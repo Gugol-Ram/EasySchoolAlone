@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
+
 // import { useTranslation } from "react-i18next";
 import styles from "./contact.module.css";
 
@@ -28,7 +29,7 @@ export const Contact = () => {
     }
 
     emailjs
-      .sendForm("service_gk06hl3", "template_tdatoc8", form.current, {
+      .sendForm("service_tir8naz", "template_oooa8wf", form.current, {
         publicKey: "xtx7KNmACAjuGgqli",
       })
       .then(
