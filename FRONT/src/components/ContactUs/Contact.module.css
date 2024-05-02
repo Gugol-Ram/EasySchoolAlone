@@ -14,6 +14,7 @@
   padding: 1em;
   border-radius: 0.5em;
   box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+  margin-bottom: 15px;
 }
 
 /* Agregamos reglas para los elementos dentro de formParameters */
@@ -69,6 +70,14 @@
 .a:hover,
 .a:focus {
   color: #fff;
+}
+
+.par {
+  font: 18px/24px "opensans-bold", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #ebeeee;
+  margin-bottom: 6px;
 }
 
 .h1 {

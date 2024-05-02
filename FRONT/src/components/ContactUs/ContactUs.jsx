@@ -49,8 +49,13 @@ export const Contact = () => {
     const name = form.current.user_name.value.trim();
     const email = form.current.user_email.value.trim();
     const subject = form.current.user_subject.value.trim();
+    const message = form.current.message.value.trim();
 
     const errors = {};
+
+    if (message.length < 1) {
+      errors.message = "Por favor debe dejar un mensaje";
+    }
 
     if (name.length < 3) {
       errors.name = "El nombre debe tener 3 o más carácteres";
@@ -98,7 +103,7 @@ export const Contact = () => {
           </h1>
         </div>
         <div className="ten columns">
-          <p className="lead">
+          <p className={styles.par}>
             ¿Necesitás contactarnos? No dudes en dejarnos tu mensaje completando
             este formulario y te responderemos a la brevedad.
           </p>
@@ -170,6 +175,14 @@ export const Contact = () => {
                   Mensaje
                   <span className="required">*</span>
                 </label>
+                {errors.message && (
+                  <div
+                    className="error"
+                    style={{ color: "red", marginTop: "0px" }}
+                  >
+                    {errors.message}
+                  </div>
+                )}
                 <textarea
                   cols={35}
                   rows={15}
