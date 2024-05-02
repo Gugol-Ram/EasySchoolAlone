@@ -93,6 +93,9 @@ export const Contact = () => {
     form.current.reset();
     setErrors({});
   };
+  // const clearErrors = () => {
+  // setSubmitError(false); // Limpiar los mensajes de error
+  // };
 
   return (
     <section className={styles.background}>
@@ -116,6 +119,15 @@ export const Contact = () => {
           <form ref={form} onSubmit={sendEmail}>
             <fieldset>
               <h3 className="text-center mb-4">Cóntacto</h3>
+              <input
+                className={styles.returnButton}
+                type="button"
+                value="Volver"
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              />
+
               <div>
                 <label htmlFor="contactName">
                   Nombre <span className="required">*</span>
@@ -191,7 +203,14 @@ export const Contact = () => {
                   name="message"
                   defaultValue={""}
                 />
-                <label htmlFor="" style={{ marginRight: "15px" }}>
+
+                <label
+                  htmlFor=""
+                  style={{
+                    marginRight: "15px",
+                    textAlign: "center",
+                  }}
+                >
                   <strong>¿Listo?</strong>
                 </label>
                 <input
