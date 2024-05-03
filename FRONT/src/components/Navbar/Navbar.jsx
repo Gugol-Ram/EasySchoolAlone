@@ -1,8 +1,17 @@
 import style from "./navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import img from "../../Img/EasySchool.png";
 
 function Navbar() {
+  const location = useLocation();
+
+  // Define una variable para el estilo del enlace Home
+  let homeLinkStyle = style.links;
+
+  // Si estamos en la página de inicio, establece un estilo diferente para el enlace Home
+  if (location.pathname === "/") {
+    homeLinkStyle = `${style.links} ${style.hidden}`; // Añade una clase CSS para ocultar el enlace
+  }
   return (
     <>
       <nav className={style.navbar}>
@@ -11,7 +20,7 @@ function Navbar() {
             <img src={img} alt="imagen" />
           </div>
           <div className={style.div_links}>
-            <NavLink className={style.links} to={"/"}>
+            <NavLink className={homeLinkStyle} to={"/"}>
               Home
             </NavLink>
             <NavLink className={style.links} to={"/testimonios"}>

@@ -1,12 +1,21 @@
 .navbar {
   width: 100%;
-  height: 13%;
+  height: 16%;
   display: flex;
   justify-content: center;
   position: relative;
-  background-color: #3d6683;
+  background-color: #16527d;
   color: #fff;
   padding: 0 10px;
+}
+
+.navbar:hover {
+  pointer-events: painted;
+  background-color: #204864;
+}
+
+.hidden {
+  display: none;
 }
 
 .container_navbar {
@@ -47,4 +56,13 @@
   color: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 1.2rem;
+}
+
+.links:hover {
+  text-decoration: underline;
+  color: #fff;
+  border: solid;
+  border-color: #3d6683;
+  border-radius: 5px;
+  padding: 4px;
 }
