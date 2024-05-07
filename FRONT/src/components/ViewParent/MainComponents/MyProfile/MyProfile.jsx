@@ -65,7 +65,9 @@ function MyProfile() {
             </div>
           ) : (
             <div className={style.notRegistered}>
-              <h5>Aún no te has registrado como padre.</h5>
+              <h5>
+                <strong>Aún no te has registrado como padre.</strong>
+              </h5>
               <br />
               <p className={style.notRegisteredMsg}>
                 Una vez que hayas llenado tus datos podrás interactuar de una

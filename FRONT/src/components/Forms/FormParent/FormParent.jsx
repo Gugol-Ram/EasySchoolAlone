@@ -170,7 +170,12 @@ const FormParent = () => {
         </NavLink> */}
         <form onSubmit={onSubmit} className={style.form}>
           <nav className={style.navbar}>
-            <h1>Información general del Apoderado</h1>
+            <h1>
+              <strong className={style.title}>
+                Información general del Padre/Apoderado
+              </strong>
+            </h1>
+            <hr />
           </nav>
           <div className={style.container_label_inputs}>
             <div className={style.first_container}>
@@ -223,7 +228,9 @@ const FormParent = () => {
               <div className={style.second_first_container}>
                 <div className={style.second_first_container_first_line}>
                   <div className={style.container_name}>
-                    <label htmlFor="name">Nombre:</label>
+                    <label htmlFor="name">
+                      <strong>Nombre:</strong>
+                    </label>
                     <input
                       className="my-2"
                       value={newParent.name}
@@ -235,7 +242,9 @@ const FormParent = () => {
                     {errors.name && <p>{errors.name}</p>}
                   </div>
                   <div className={style.container_lastName}>
-                    <label htmlFor="lastName">Apellido:</label>
+                    <label htmlFor="lastName">
+                      <strong>Apellido:</strong>
+                    </label>
                     <input
                       className="my-2"
                       value={newParent.lastName}
@@ -249,7 +258,9 @@ const FormParent = () => {
                 </div>
                 <div className={style.second_first_container_second_line}>
                   <div className={style.container_idDoc}>
-                    <label htmlFor="idDoc">Documento de identidad:</label>
+                    <label htmlFor="idDoc">
+                      <strong>Documento de identidad:</strong>
+                    </label>
                     <input
                       value={newParent.idDoc}
                       onChange={handleChange}
@@ -260,7 +271,9 @@ const FormParent = () => {
                     {errors.idDoc && <p>{errors.idDoc}</p>}
                   </div>
                   <div className={style.container_email}>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">
+                      <strong>Email:</strong>
+                    </label>
                     <input
                       className="my-2"
                       value={newParent.email}
@@ -275,7 +288,7 @@ const FormParent = () => {
                 <div className={style.second_first_container_third_line}>
                   <div className={style.container_educationLevel}>
                     <label htmlFor="educationLevel">
-                      Nivel educacional: (grado)
+                      <strong>Nivel educacional: (grado)</strong>
                     </label>
                     <input
                       className="my-2"
@@ -288,7 +301,9 @@ const FormParent = () => {
                     {errors.educationLevel && <p>{errors.educationLevel}</p>}
                   </div>
                   <div className={style.container_profession}>
-                    <label htmlFor="profession">Profesión:</label>
+                    <label htmlFor="profession">
+                      <strong>Profesión:</strong>
+                    </label>
                     <input
                       className="my-2"
                       value={newParent.profession}
@@ -305,7 +320,9 @@ const FormParent = () => {
             <div className={style.second_container}>
               <div className={style.first_second_container}>
                 <div className={style.container_telephone}>
-                  <label htmlFor="telephone">Télefono del hogar:</label>
+                  <label htmlFor="telephone">
+                    <strong>Télefono del hogar:</strong>
+                  </label>
                   <input
                     className="my-2"
                     value={newParent.telephone}
@@ -317,7 +334,9 @@ const FormParent = () => {
                   {errors.telephone && <p>{errors.telephone}</p>}
                 </div>
                 <div className={style.container_jobTelephone}>
-                  <label htmlFor="jobTelephone">Télefono del trabajo:</label>
+                  <label htmlFor="jobTelephone">
+                    <strong>Télefono del trabajo:</strong>
+                  </label>
                   <input
                     className="my-2"
                     value={newParent.jobTelephone}
@@ -329,7 +348,9 @@ const FormParent = () => {
                   {errors.jobTelephone && <p>{errors.jobTelephone}</p>}
                 </div>
                 <div className={style.container_contactCellphone}>
-                  <label htmlFor="contactCellphone">Celular:</label>
+                  <label htmlFor="contactCellphone">
+                    <strong>Celular:</strong>
+                  </label>
                   <input
                     className="my-2"
                     value={newParent.contactCellphone}
@@ -343,7 +364,9 @@ const FormParent = () => {
               </div>
               <div className={style.second_second_container}>
                 <div className={style.container_address}>
-                  <label htmlFor="address">Dirección del Hogar:</label>
+                  <label htmlFor="address">
+                    <strong>Dirección del Hogar:</strong>
+                  </label>
                   <input
                     className="my-2"
                     value={newParent.address}
@@ -355,7 +378,9 @@ const FormParent = () => {
                   {errors.address && <p>{errors.address}</p>}
                 </div>
                 <div className={style.container_jobAddress}>
-                  <label htmlFor="jobAddress">Dirección del Trabajo: </label>
+                  <label htmlFor="jobAddress">
+                    <strong>Dirección del Trabajo:</strong>
+                  </label>
                   <input
                     className="my-2"
                     value={newParent.jobAddress}
@@ -369,6 +394,8 @@ const FormParent = () => {
               </div>
             </div>
           </div>
+          <br />
+          <br />
           <button
             type="submit"
             className={style.submit_button}
