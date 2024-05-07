@@ -1,6 +1,14 @@
 .main_container {
   overflow-y: auto;
+  /* max-height: 100vh; */
   height: 100%;
+  background-color: #618aa8;
+}
+
+.main_container hr {
+  width: 100%;
+  position: absolute;
+  top: 15%;
 }
 
 .title {

@@ -47,6 +47,7 @@ function AsideParent() {
 
   const parent = useSelector((state) => state.parent);
   const rated = useSelector((state) => state.rated);
+  const parentFilled = useSelector((state) => state.parentId);
   // const [open, setOpen] = useState(false);
   return (
     <aside className={style.container_aside}>
@@ -59,26 +60,37 @@ function AsideParent() {
       <hr />
       <div className={style.container_links}>
         <Links url={"myProfile"} img={myProfile} name={"Mi Perfil"} />
-        {parent && parent.validate && (
-          <Links url={"myChildren"} img={myChildren} name={"Mis hijos"} />
-        )}
-        {parent && parent.validate && (
-          <Links url={"studentForm"} img={myBook} name={"Incribir a mi hijo"} />
-        )}
-        {!rated.hasRated && parent && parent.validate && (
-          <Links
-            url={"comentario"}
-            img={comentariosPNG}
-            name={"Dejanos tu comentario"}
-          />
-        )}
-        {rated.hasRated && parent && parent.validate && (
-          <Links
-            url={`comentEdit`}
-            img={comentariosPNG}
-            name={"Modificar mi comentario"}
-          />
-        )}
+        {parent &&
+          parentFilled.parentDetails &&
+          parentFilled.parentDetails.length > 0 && (
+            <Links url={"myChildren"} img={myChildren} name={"Mis hijos"} />
+          )}
+        {parentFilled.parentDetails &&
+          parentFilled.parentDetails.length > 0 && (
+            <Links
+              url={"studentForm"}
+              img={myBook}
+              name={"Incribir a mi hijo"}
+            />
+          )}
+        {!rated.hasRated &&
+          parentFilled.parentDetails &&
+          parentFilled.parentDetails.length > 0 && (
+            <Links
+              url={"comentario"}
+              img={comentariosPNG}
+              name={"Dejanos tu comentario"}
+            />
+          )}
+        {rated.hasRated &&
+          parentFilled.parentDetails &&
+          parentFilled.parentDetails.length > 0 && (
+            <Links
+              url={`comentEdit`}
+              img={comentariosPNG}
+              name={"Modificar mi comentario"}
+            />
+          )}
 
         <LogoutButton img={logout} className={style.container_links} />
       </div>
