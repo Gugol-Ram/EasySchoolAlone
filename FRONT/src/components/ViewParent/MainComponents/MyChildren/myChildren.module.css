@@ -20,6 +20,23 @@
   position: relative;
 }
 
+.notRegisteredMsg {
+  margin: 20px;
+  margin-bottom: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.notRegistered {
+  margin-left: 20px;
+  /* Ajusta el valor según sea necesario */
+  display: flex;
+  /* Esto permite que los elementos hijos se comporten como elementos flexibles */
+  flex-direction: column;
+  /* Asegura que los elementos hijos se apilen verticalmente */
+  align-items: flex-start;
+  /* Alinea los elementos hijos al inicio del eje transversal (izquierda en este caso) */
+}
+
 .card_container {
   display: flex;
   flex-wrap: wrap;

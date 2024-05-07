@@ -143,10 +143,23 @@ function MyChildren() {
             ))}
           </div>
         ) : (
-          <p>No ha matriculado a ningún estudiante</p>
+          <div className={style.notRegistered}>
+            <h5>
+              <strong>No se ha matriculado a ningún estudiante</strong>
+            </h5>
+            <br />
+            <p className={style.notRegisteredMsg}>
+              Una vez que se encuentren cargados los datos del/los estudiante/s
+              a inscribir, podrás visualizarlos aquí y procesar el costo de
+              matriculación. Recordá que los mismos deben ser validados por un
+              administrador.
+            </p>
+          </div>
         )
       ) : (
-        <p>Primero debe completar sus datos como padre</p>
+        <p className={style.notRegisteredMsg}>
+          Primero debe completar sus datos como padre
+        </p>
       )}
     </div>
   );
