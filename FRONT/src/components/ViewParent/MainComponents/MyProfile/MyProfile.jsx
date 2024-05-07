@@ -21,6 +21,8 @@ function MyProfile() {
   return (
     <div className={style.main_container}>
       <h2 className={style.title}>Datos personales</h2>
+      <hr />
+      <br />
       <div>
         <br />
         <div>
@@ -62,8 +64,14 @@ function MyProfile() {
               )}
             </div>
           ) : (
-            <div>
-              <h5>Aún no te has registrado como padre</h5>
+            <div className={style.notRegistered}>
+              <h5>Aún no te has registrado como padre.</h5>
+              <br />
+              <p className={style.notRegisteredMsg}>
+                Una vez que hayas llenado tus datos podrás interactuar de una
+                manera más completa con la página, como proceder a la inscrpción
+                del Estudiante y/o dejarnos tu opinión.
+              </p>
 
               <Button
                 as={NavLink}

@@ -52,7 +52,8 @@ function AsideParent() {
     <aside className={style.container_aside}>
       <div className={style.container_dad_name}>
         <h1>
-          BIENVENIDO A TU SESION <br /> <br /> {user ? user.nombre : ""}
+          <strong>BIENVENIDO A TU SESION</strong> <br /> <br />{" "}
+          {user ? user.nombre : ""}
         </h1>
       </div>
       <hr />

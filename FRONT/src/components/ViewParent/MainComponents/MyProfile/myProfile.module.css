@@ -1,6 +1,13 @@
 .main_container {
   overflow-y: auto;
   max-height: 100vh;
+  background-color: #618aa8;
+}
+
+.main_container hr {
+  width: 100%;
+  position: absolute;
+  top: 15%;
 }
 
 .title {
@@ -74,6 +81,15 @@ button {
 
 .parentInfo {
   font-size: 1.4em;
+}
+
+.warning {
+  display: flex;
+  text-align: center;
+  padding-left: 0.7em;
+  padding-top: 0.6em;
+  margin-bottom: 1em;
+  position: relative;
 }
 
 .notRegistered {
