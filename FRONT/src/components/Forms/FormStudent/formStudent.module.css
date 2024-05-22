@@ -77,6 +77,7 @@ select {
   border: solid;
   border-radius: 5px;
   border-color: rgba(13, 101, 160, 0.732);
+  color: white;
 }
 
 .first_container {
