@@ -67,6 +67,7 @@ function MyChildren() {
       <h2 className={style.title}>Lista de Estudiantes matriculados</h2>
       <hr />
       <br />
+      <br />
       {estudianteDetail ? (
         estudianteDetail.length > 0 ? (
           <div className={style.card_container}>

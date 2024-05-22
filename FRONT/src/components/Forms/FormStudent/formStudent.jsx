@@ -169,8 +169,11 @@ const FormStudent = () => {
       <form onSubmit={onSubmit} className={style.form}>
         <nav className={style.navbar}>
           <h2>Información general del estudiante</h2>
+          <hr />
+          <br />
+          <br />
         </nav>
-        <br />
+
         <div className={style.container_form}>
           <div className={style.container_label_inputs}>
             {

@@ -6,7 +6,7 @@ const { PORT } = process.env;
 
 (async () => {
   try {
-    await conn.sync({ force: true });
+    await conn.sync({ force: false });
     console.log("Database schema synchronized.");
 
     await loadDataToDatabase();
