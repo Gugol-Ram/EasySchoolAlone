@@ -157,7 +157,7 @@ const FormParent = () => {
     <>
       <div className={style.container_form}>
         <button
-          onClick={() => (window.location.href = "/")}
+          onClick={() => (window.location.href = "/viewParent/myProfile")}
           className={style.returnButton}
         >
           Volver a la pantalla de inicio
