@@ -10,7 +10,9 @@ const createValoracion = async (req, res) => {
     if (!parentId && !parent) {
       return res
         .status(404)
-        .json({ error: "Parent not found, cant create valoracion" });
+        .json({
+          error: "Parent not found or is missing, can't create feedback",
+        });
     }
     const newValoracion = await Valoracion.create(req.body);
 
@@ -26,7 +28,9 @@ const createValoracion = async (req, res) => {
       }));
       return res.status(400).json({ errors: validationErrors });
     }
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({
+      error: "Cannot create. Missing or incorrect fields. ISR",
+    });
   }
 };
 
@@ -42,7 +46,9 @@ const getAllValoraciones = async (_, res) => {
     return res.status(200).json(valoraciones);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res
+      .status(500)
+      .json({ error: error.message` Cannot get Feedbacks. ISE.` });
   }
 };
 
@@ -52,12 +58,14 @@ const getValoracionById = async (req, res) => {
   try {
     const valoracion = await Valoracion.findByPk(id);
     if (!valoracion) {
-      return res.status(404).json({ error: "Valoracion no encontrada" });
+      return res
+        .status(404)
+        .json({ error: "Cannot Get by ID, not Found/exists. ISE" });
     }
     return res.status(200).json(valoracion);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: error.message`ISE getting ID` });
   }
 };
 
@@ -67,14 +75,16 @@ const updateValoracionById = async (req, res) => {
   try {
     const valoracion = await Valoracion.findByPk(id);
     if (!valoracion) {
-      return res.status(404).json({ error: "Valoracion no encontrada" });
+      return res
+        .status(404)
+        .json({ error: "Cannot Update, FeedBack not Found/exists. ISE" });
     }
     await Valoracion.update(req.body, { where: { id } });
     const updatedValoracion = await Valoracion.findByPk(id);
     return res.status(200).json(updatedValoracion);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Cannot update feedback. ISE" });
   }
 };
 
@@ -84,15 +94,15 @@ const deleteValoracionById = async (req, res) => {
   try {
     const valoracion = await Valoracion.findByPk(id);
     if (!valoracion) {
-      return res.status(404).json({ error: "Valoracion no encontrada" });
+      return res
+        .status(404)
+        .json({ error: "Cannot delete. FeedBack not Found/exists" });
     }
     await Valoracion.destroy({ where: { id } });
-    return res
-      .status(200)
-      .json({ message: "Valoracion eliminada exitosamente" });
+    return res.status(200).json({ message: "FeedBack deleted Succesfully!" });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Cannot delete. ISE" });
   }
 };
 
@@ -110,11 +120,10 @@ const hasParentRated = async (req, res) => {
       res.status(200).json({ hasRated: false });
     }
   } catch (error) {
-    console.error(
-      "Error al verificar si el padre ha realizado una valoración:",
-      error
-    );
-    res.status(500).json({ error: "Error interno del servidor" });
+    console.error("Cannot check if parent has rated:", error);
+    res.status(500).json({
+      error: error.message` Cannot check if parent has rated. ISE.`,
+    });
   }
 };
 
