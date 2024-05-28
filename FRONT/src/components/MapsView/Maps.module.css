@@ -1,0 +1,9 @@
+/* src/components/Maps/Maps.module.css */
+
+.mapContainer {
+  width: 60%;
+  height: 400px; /* Puedes ajustar esta altura según tus necesidades */
+  margin: 0 auto; /* Para centrar el mapa horizontalmente */
+  border: 1px solid #ccc; /* Opcional: agregar un borde */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: agregar sombra */
+}
