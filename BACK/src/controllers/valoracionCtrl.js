@@ -8,11 +8,9 @@ const createValoracion = async (req, res) => {
     const parent = parentId ? await Parents.findByPk(parentId) : null;
 
     if (!parentId && !parent) {
-      return res
-        .status(404)
-        .json({
-          error: "Parent not found or is missing, can't create feedback",
-        });
+      return res.status(404).json({
+        error: "Parent not found or is missing, can't create feedback",
+      });
     }
     const newValoracion = await Valoracion.create(req.body);
 
@@ -122,7 +120,7 @@ const hasParentRated = async (req, res) => {
   } catch (error) {
     console.error("Cannot check if parent has rated:", error);
     res.status(500).json({
-      error: error.message` Cannot check if parent has rated. ISE.`,
+      error: `${error.message} Cannot check if parent has rated. ISE.`,
     });
   }
 };
