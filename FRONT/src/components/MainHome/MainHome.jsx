@@ -42,29 +42,29 @@ function MainHome() {
             <div className={style.offers}>
               <div className={style.offers_detail}>
                 <img src={factura} alt="Facturación Electrónica" />
-                <h3>Facturación Electrónica</h3>
+                <h3>Gestión y Control</h3>
                 <p>
-                  Como usuario de DataCole la emisión de facturas electrónicas
-                  están vinculadas con la sunat, lo cual ahorrará el tiempo y
-                  costo para realizar su gestión contable.
+                  Como usuario, ya sea padre/tutor o administrador, tendrá una
+                  gestión y control completo de su perfil.
                 </p>
               </div>
               <div className={style.offers_detail}>
                 <img src={pasarela} alt="Pasarela de Pago" />
-                <h3>Pasarela de Pago</h3>
+                <h3>Pago OnLine</h3>
                 <p>
-                  Podrás realizar todos tus pagos como matrícula, pensiones,
-                  uniforme, paquetes escolares, etc, utilizando tu tarjeta
-                  crédito o débito.
+                  Podrás realizar todos tus pagos como matrícula, uniforme,
+                  paquetes escolares, etc, utilizando tu tarjeta de crédito o
+                  débito y por medio de la plataforma de{" "}
+                  <strong>Mercado Pago</strong>.
                 </p>
               </div>
               <div className={style.offers_detail}>
                 <img src={mensajeria} alt="Sistema de mensajería" />
                 <h3>Sistema de mensajería</h3>
                 <p>
-                  Contamos con nuestro servidor de mensajería dedicado para
-                  impartir la gestión en nuestros módulos que asegura la
-                  eficacia de este servicio al 100%.
+                  Contamos con nuestro servidor de mensajería dedicado para la
+                  gestión y envío de correos electrónicos relevantes como pagos
+                  o inscripciones.
                 </p>
               </div>
             </div>
