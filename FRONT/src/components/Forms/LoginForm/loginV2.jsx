@@ -63,7 +63,9 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post(`${VITE_BACK_URL}/login`, loginData);
+      const response = await axios.post(`${VITE_BACK_URL}/login`, loginData, {
+        withCredentials: false, // true:Importante para enviar cookies(NOTA en /Docs por el error CORS)
+      });
       const { token } = response.data;
 
       sessionStorage.setItem("token", token);
@@ -78,7 +80,7 @@ const Login = () => {
         console.log(errorMessage);
       } else if (error.request) {
         // Error de solicitud
-        errorMessage = "Hubo un problema al realizar la solicitud al servidor.";
+        errorMessage = "Credenciales Inválidas. Por favor verifique.";
       } else {
         // Otros errores
         errorMessage =
@@ -92,6 +94,10 @@ const Login = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
+      // Eliminar el mensaje de error después de 5 segundos
+      setTimeout(() => {
+        setError((prevError) => ({ ...prevError, message: "" }));
+      }, 5000);
     }
   };
 
@@ -228,7 +234,9 @@ const Login = () => {
                 Iniciar sesión
               </Button>
               {error.message && (
-                <span style={{ color: "red" }}>{error.message}</span>
+                <span style={{ color: "red" }}>
+                  <strong>{error.message}</strong>
+                </span>
               )}
             </div>
 
