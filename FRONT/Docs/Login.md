@@ -71,3 +71,7 @@ Así que se volvió a desactivar el envió de cookies en `Login.jsx`y parece fun
 Como conclusión, no obtuve certeza de donde se originó dicho error ya que -en principio- volví al código como estaba inicialemente, y el error se eliminó, eliminando la DB y creando otra.
 
 Futuros updates al respecto aquí...💭
+
+a
+a
+a
