@@ -1,4 +1,100 @@
-.container_slide {
+.backgroundContainer {
+  background-color: #657d16;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* este css tambien le afecta el css de testimonios!! */
+
+.carouselContainer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f31111;
+  border-radius: 10px;
+  position: relative;
+  width: 95%;
+  height: 98%;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.slidesContainer {
+  overflow: hidden;
+  width: 80%;
+}
+
+.slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slideItem {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.prevButton,
+.nextButton {
+  background: #16527d;
+  color: rgb(224, 235, 9);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background: #02243c;
+}
+
+.container_details {
+  height: 98%;
+  padding: 15px;
+  background-color: #3cea07;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.container_details_first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.carouselContainer h2 {
+  margin-bottom: 20px;
+  background-color: aqua;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+/* #02243c; */
+/* .container_slide {
   width: 90%;
   background-color: red;
   border: 5px #16527d solid;
@@ -9,15 +105,14 @@
 .container_slide h2 {
   font-size: 3rem;
   font-family: "Times New Roman", Times, serif;
-  /* padding-bottom: 3%;
-  padding-top: 3%; */
+
   padding: 3% 0 3% 0;
   border: #16527d 3px solid;
   border-radius: 10px;
   background-color: violet;
 }
 
-/**********************/
+
 
 .container_details {
   margin: 5% 3% 5% 3%;
@@ -49,52 +144,11 @@
   position: relative;
   flex-direction: column;
   padding: 10px;
-  /* background-color: #204864a9; */
+  
 }
 
 .container_details_first b:last-child {
   position: absolute;
   top: 0;
   right: 0;
-}
-
-/* Flechas del slider */
-.slick-prev,
-.slick-next {
-  font-size: 0;
-  color: transparent;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  transition: background 0.3s ease;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  font-size: 20px;
-  color: white;
-  content: "←"; /* ← for left arrow, → for right arrow */
-}
-
-.slick-next:before {
-  content: "→"; /* Cambia el contenido para la flecha derecha */
-}
-
-.slick-prev:hover,
-.slick-next:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-/* Dots (puntos de navegación) */
-.slick-dots li button:before {
-  font-size: 12px;
-  color: #bbb;
-  opacity: 1;
-  transition: color 0.3s ease;
-}
-
-.slick-dots li.slick-active button:before {
-  color: #333;
-}
+} */
