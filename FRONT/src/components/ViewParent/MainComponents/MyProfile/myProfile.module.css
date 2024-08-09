@@ -115,3 +115,11 @@ button {
   color: #618aa8;
   text-align: center;
 }
+
+/* Loading... */
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* O ajusta según sea necesario */
+}
