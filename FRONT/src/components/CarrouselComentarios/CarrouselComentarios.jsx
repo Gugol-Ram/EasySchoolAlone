@@ -16,13 +16,13 @@ const CarrouselComentarios = () => {
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? comentarios.length - 1 : prevIndex - 1
+      prevIndex === 0 ? Math.ceil(comentarios.length / 2) - 1 : prevIndex - 1
     );
   };
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === comentarios.length - 1 ? 0 : prevIndex + 1
+      prevIndex === Math.ceil(comentarios.length / 2) - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -38,7 +38,9 @@ const CarrouselComentarios = () => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.carouselContainer}>
-        <h2>Lo que dicen nuestros usuarios</h2>
+        <h2>
+          <strong>Lo que dicen nuestros usuarios</strong>
+        </h2>
         <div className={style.carousel}>
           <button className={style.prevButton} onClick={prevSlide}>
             ❮
@@ -46,7 +48,7 @@ const CarrouselComentarios = () => {
           <div className={style.slidesContainer}>
             <div
               className={style.slide}
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              style={{ transform: `translateX(-${currentIndex * 50}%)` }}
             >
               {comentarios.map((comment, index) => (
                 <div key={index} className={style.slideItem}>
