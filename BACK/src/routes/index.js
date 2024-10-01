@@ -10,6 +10,7 @@ const paymentRoutes = require("./payment");
 const receiveWebhook = require("./payment");
 const superadminroutes = require("./superAdminRoutes");
 const valoracionesRoutes = require("./valoracionRoutes");
+const payPalPaymentRoutes = require("./PayPalPayRoute");
 
 const router = Router();
 
@@ -23,5 +24,7 @@ router.use(paymentRoutes);
 router.use(receiveWebhook);
 router.use(superadminroutes);
 router.use(valoracionesRoutes);
+
+router.use(payPalPaymentRoutes);
 
 module.exports = router;
